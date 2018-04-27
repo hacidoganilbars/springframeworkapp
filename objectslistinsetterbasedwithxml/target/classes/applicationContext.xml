@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.2.xsd">
+
+
+	<bean id="kursBeanJ" class="com.doganilbars.entities.Kurs">
+		<property name="id" value="Java101"></property>
+		<property name="isim" value="Java Kursu"></property>
+	</bean>
+
+	<bean id="kursBeanC" class="com.doganilbars.entities.Kurs">
+		<property name="id" value="c#201"></property>
+		<property name="isim" value="C# Kursu"></property>
+	</bean>
+	<bean id="kursBeanA" class="com.doganilbars.entities.Kurs">
+		<property name="id" value="Android404"></property>
+		<property name="isim" value="Android Kursu"></property>
+	</bean>
+	<bean id="ogrenciBean" class="com.doganilbars.entities.Ogrenci">
+		<property name="id" value="157og"></property>
+		<property name="isim" value="Hacı Doğan İlbars"></property>
+		<property name="puan" value="5.0"></property>
+		<property name="kurslar">
+			<list>
+				<ref bean="kursBeanJ" />
+				<ref bean="kursBeanC" />
+				<ref bean="kursBeanA" />
+			</list>
+		</property>
+	</bean>
+</beans>
