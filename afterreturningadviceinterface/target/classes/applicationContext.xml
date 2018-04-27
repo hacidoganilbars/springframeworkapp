@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:c="http://www.springframework.org/schema/c"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.2.xsd">
+
+	<bean id="ogrenciService"
+		class="com.doganilbars.service.OgrenciService">
+		<property name="isim" value="Hacı Doğan İlbars"></property>
+		<property name="puan" value="4.55"></property>
+	</bean>
+
+	<bean id="ogrenciAfterMethod"
+		class="com.doganilbars.aop.OgrenciAfterMethod" />
+
+	<bean id="ogrenciServiceProxy"
+		class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="target" ref="ogrenciService" />
+		<property name="interceptorNames">
+			<list>
+				<value>ogrenciAfterMethod</value>
+			</list>
+		</property>
+	</bean>
+</beans>
